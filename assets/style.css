@@ -5,6 +5,7 @@ html, body, .row, p {
 
 .row{
     justify-content: space-around;
+    margin-bottom: 1rem;
 }
 
 body{
@@ -66,4 +67,8 @@ body{
     background-color: #ff9500;
     text-align: center;
 
+}
+
+.button.num {
+    background-color: #505050;
 }
