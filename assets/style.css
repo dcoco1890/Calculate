@@ -1,7 +1,12 @@
-html, body {
+html, body, .row, p {
     margin: 0;
     padding: 0;
 }
+
+.row{
+    justify-content: space-around;
+}
+
 body{
     height:100vh;
     background-color: aliceblue;
@@ -31,8 +36,34 @@ body{
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    margin-bottom: .5rem;
 }
 
 #numAnswer > p {
     margin-right: 10px;
+}
+.num{
+    font-size: 18px;
+}
+
+.button {
+    border-radius: 100%;
+    color: #f9f9f9;
+    background-color: #d4d4d2;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+}
+
+.button > p.display-4 {
+    margin-bottom: .25rem;
+}
+
+.button.op {
+    background-color: #ff9500;
+    text-align: center;
+
 }
