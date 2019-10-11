@@ -3,9 +3,12 @@ $(document).ready(function () {
     // declaring things
     const $button = $(".button");
     const $answer = $("#main");
+    const $second = $("#other");
     let type = "";
     let numArr = [];
+    let opArr = [];
     let opPress = false;
+    let num = "";
 
     //button click method
     $button.on("click", function(){
@@ -25,18 +28,40 @@ $(document).ready(function () {
     
     function buttonPress(value, type){
         console.log(type, value); // just for me
-        // console.log($answer.children().text())
+        
 
-        // important- grabs the value of whats currently in the answer box
-        let num = $answer.text();
+        
+        
 
-        if(type === "num" && !opPress){
+        if(opPress){
+            $answer.text("");
+            $second.text(num)
+            opPress = false;
+            num = "";
+        }
+
+       
+        if(type === "num" ){
+
+            num = $answer.text();
             num += value;
             $answer.text(num)
+        // if the type is operator, push num into array
         } else if(type === "op"){
+
             opPress = true;
-            numArr.push(Number(num));
-            console.log(numArr)
+            if(num !== ""){
+                numArr.push(Number(num));
+            }
+            console.log(numArr);
+            
+        } else{
+            //  clear all values
+            if(value === "AC"){
+                numArr = [];
+                $answer.text("");
+                $second.text("");
+            }
         }
 
     }
