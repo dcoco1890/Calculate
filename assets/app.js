@@ -2,7 +2,7 @@ $(document).ready(function () {
     
     // declaring things
     const $button = $(".button");
-    const $answer = $("#numAnswer");
+    const $answer = $("#main");
     let type = "";
     let numArr = [];
     let opPress = false;
@@ -26,11 +26,17 @@ $(document).ready(function () {
     function buttonPress(value, type){
         console.log(type, value); // just for me
         // console.log($answer.children().text())
-        let num = $answer.children().text();
+
+        // important- grabs the value of whats currently in the answer box
+        let num = $answer.text();
 
         if(type === "num" && !opPress){
             num += value;
-            $answer.children().text(num)
+            $answer.text(num)
+        } else if(type === "op"){
+            opPress = true;
+            numArr.push(Number(num));
+            console.log(numArr)
         }
 
     }
