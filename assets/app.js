@@ -15,7 +15,7 @@ $(document).ready(function () {
 
         // $answer.children().text()
         if($(this).hasClass("num")){
-            type = "num"
+            numPress($(this).data("num"))
         } else if($(this).hasClass("op")){
             type = "op"
         } else {
@@ -43,9 +43,7 @@ $(document).ready(function () {
        
         if(type === "num" ){
 
-            num = $answer.text();
-            num += value;
-            $answer.text(num)
+          
         // if the type is operator, push num into array
         } else if(type === "op"){
 
@@ -64,6 +62,13 @@ $(document).ready(function () {
             }
         }
 
+    }
+    // for when a regular number gets pressed. concat nums together
+    function numPress (val) {
+        console.log(val);
+        num = $answer.text();
+        num += val;
+        $answer.text(num)
     }
 
 });
