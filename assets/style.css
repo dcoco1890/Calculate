@@ -65,6 +65,12 @@ p#main {
     cursor: pointer;
 }
 
+.button-click{
+    transition: .05s all;
+    transform: scale(1.08);
+    box-shadow: #F9F9F9;
+}
+
 .button > p.display-4 {
     margin-bottom: .25rem;
 }

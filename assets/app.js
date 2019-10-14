@@ -3,15 +3,24 @@ $(document).ready(function () {
     // declaring things
     const $button = $(".button");
     const $answer = $("#main");
-    const $second = $("#other");
-    let sign = "";
+    const $second = $("#otherNums");
+    let evalStr = "";
     let numArr = [];
     let opArr = [];
-    let opPress = false;
+
     let num = "";
+
+
+    // makes the buttons a lil' bigger when you hover
+    $button.mouseover(function () {
+        $(this).toggleClass("button-click")
+    }).mouseout(function () {
+        $(this).toggleClass("button-click")
+    })
 
     //button click method
     $button.on("click", function () {
+
 
         // $answer.children().text()
         if ($(this).hasClass("num")) {
@@ -20,7 +29,7 @@ $(document).ready(function () {
 
         } else if ($(this).hasClass("op")) {
 
-            $(this).data("op") !== "="
+            opPress($(this).data("op"))
 
             type = "op"
         } else {
@@ -28,46 +37,42 @@ $(document).ready(function () {
         }
         // sending the value of the button, and what kind it is, to this 
         // button press function
-        buttonPress($(this).children().text(), type)
+
     });
 
-    function buttonPress(value, type) {
-        console.log(type, value); // just for me
+    // function buttonPress(value, type) {
+    //     console.log(type, value); // just for me
 
 
+    //     if (opPress) {
+    //         $answer.text("");
+    //         $second.text(num)
+    //         opPress = false;
+    //         num = "";
+    //     }
+
+    //     if (type === "num") {
 
 
+    //         // if the type is operator, push num into array
+    //     } else if (type === "op") {
 
-        if (opPress) {
-            $answer.text("");
-            $second.text(num)
-            opPress = false;
-            num = "";
-        }
+    //         opPress = true;
+    //         if (num !== "") {
+    //             numArr.push(Number(num));
+    //         }
+    //         console.log(numArr);
 
+    //     } else {
+    //         //  clear all values
+    //         if (value === "AC") {
+    //             numArr = [];
+    //             $answer.text("");
+    //             $second.text("");
+    //         }
+    //     }
 
-        if (type === "num") {
-
-
-            // if the type is operator, push num into array
-        } else if (type === "op") {
-
-            opPress = true;
-            if (num !== "") {
-                numArr.push(Number(num));
-            }
-            console.log(numArr);
-
-        } else {
-            //  clear all values
-            if (value === "AC") {
-                numArr = [];
-                $answer.text("");
-                $second.text("");
-            }
-        }
-
-    }
+    // }
     // for when a regular number gets pressed. concat nums together
     function numPress(val) {
         console.log(val);
@@ -75,5 +80,19 @@ $(document).ready(function () {
         num += val;
         $answer.text(num)
     }
+
+    function opPress(val) {
+
+        // create new element, add num txt to it
+        let newp = $("<div>")
+        newp.text(num)
+
+
+        $second.append(newp);
+        evalStr = num + '' + val; //only will do 2 numbers, i think
+        console.log(evalStr);
+    }
+
+    // function evaluate()
 
 });
