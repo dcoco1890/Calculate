@@ -41,6 +41,10 @@ body{
     flex-direction: row-reverse;
 }
 
+#otherNums {
+    border: 1px solid green;
+}
+
 p#main {
     margin-right: 10px;
 }
