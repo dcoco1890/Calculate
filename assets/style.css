@@ -35,14 +35,16 @@ body{
     height: 28%;
     color: #F9F9F9;
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: flex-end;
     margin-bottom: .5rem;
-    flex-direction: row-reverse;
+    
 }
 
 #otherNums {
     border: 1px solid green;
+    margin: 10px auto auto 10px;
+    display: flex;
 }
 
 p#main {
