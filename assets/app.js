@@ -32,8 +32,14 @@ $(document).ready(function () {
             opPress($(this).data("op"))
 
 
-        } else {
+        } else if ($(this).data("clear") === "yes") {
 
+            $answer.text("");
+            $second.text("");
+            evalStr = "";
+
+        } else if ($(this).data("clears") === "equals") {
+            evaluate();
         }
 
 
@@ -97,10 +103,17 @@ $(document).ready(function () {
         $second.append(newp);
 
 
-        evalStr = num + ' ' + val; //only will do 2 numbers, i think
+        evalStr += num + ' ' + val; //only will do 2 numbers, i think
         console.log(evalStr);
     }
 
-    // function evaluate()
+    function evaluate() {
+
+        // same as opPress, DRY later
+        let newp = $("<div class='o-nums'>")
+        newp.text(num)
+        $second.append(newp);
+        console.log(eval(evalStr));
+    }
 
 });
