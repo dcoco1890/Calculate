@@ -34,22 +34,34 @@ body{
     width: 100%;
     height: 28%;
     color: #F9F9F9;
-    display: flex;
+    /* display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: flex-end; */
     margin-bottom: .5rem;
     
 }
 
-#otherNums {
-    border: 1px solid green;
-    margin: 10px auto auto 10px;
-    display: flex;
+.main{
+    display: inline-flex;
+    position: fixed;
+    top: 18%;
+    right: 60%;
 }
 
-p#main {
-    margin-right: 10px;
+.o-nums{
+    margin-left: .15rem;
+    flex-wrap: wrap;
+    overflow: visible;
 }
+
+#otherNums {
+    border: 1px solid green;
+    margin: 1px auto auto 1px;
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+
 .num{
     font-size: 18px;
 }

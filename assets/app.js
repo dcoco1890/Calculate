@@ -84,7 +84,7 @@ $(document).ready(function () {
     function opPress(val) {
 
         // create new element, add num txt to it
-        let newp = $("<div>")
+        let newp = $("<div class='o-nums'>")
         newp.text(num)
 
 
