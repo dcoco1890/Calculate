@@ -7,7 +7,7 @@ $(document).ready(function () {
     let evalStr = "";
     let numArr = [];
     let opArr = [];
-
+    let keyedOpButton = false;
     let num = "";
 
 
@@ -31,12 +31,11 @@ $(document).ready(function () {
 
             opPress($(this).data("op"))
 
-            type = "op"
+
         } else {
-            type = "sign"
+
         }
-        // sending the value of the button, and what kind it is, to this 
-        // button press function
+
 
     });
 
@@ -71,25 +70,34 @@ $(document).ready(function () {
     //             $second.text("");
     //         }
     //     }
-
     // }
+
     // for when a regular number gets pressed. concat nums together
     function numPress(val) {
+
+        if (keyedOpButton) {
+            $answer.text("");
+            keyedOpButton = false;
+        }
         console.log(val);
         num = $answer.text();
         num += val;
         $answer.text(num)
     }
 
+    // operator press function
     function opPress(val) {
 
+        keyedOpButton = true;
         // create new element, add num txt to it
         let newp = $("<div class='o-nums'>")
         newp.text(num)
 
-
+        // add current num to top div
         $second.append(newp);
-        evalStr = num + '' + val; //only will do 2 numbers, i think
+
+
+        evalStr = num + ' ' + val; //only will do 2 numbers, i think
         console.log(evalStr);
     }
 
