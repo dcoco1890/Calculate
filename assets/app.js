@@ -7,6 +7,7 @@ $ (document).ready (function () {
   let numArr = [];
   let opArr = [];
   let keyedOpButton = false;
+  let keyedEquals = false;
   let num = '';
   let valid = $ ('#validation');
 
@@ -25,13 +26,16 @@ $ (document).ready (function () {
     if ($ (this).hasClass ('num')) {
       numPress ($ (this).data ('num'));
     } else if ($ (this).hasClass ('op')) {
-      opPress ($ (this).data ('op'));
+      if ($ (this).data ('op') === '=') {
+        keyedEquals = true;
+        evaluate ();
+      } else {
+        opPress ($ (this).data ('op'));
+      }
     } else if ($ (this).data ('clear') === 'yes') {
       $answer.text ('');
       $second.text ('');
       evalStr = '';
-    } else if ($ (this).data ('clears') === 'equals') {
-      evaluate ();
     }
   });
 
@@ -74,11 +78,13 @@ $ (document).ready (function () {
       keyedOpButton = false;
     }
 
+    // making sure the number isnt longer than 6 digits, and also sending
+    // the other numbers to the other div up top
     let x = $answer.text ().length;
-
     if (x > 6) {
       valid.text ("Number too big. Why don't you try doing something with it?");
     } else {
+      valid.text ('');
       num = $answer.text ();
       num += val;
       $answer.text (num);
@@ -90,7 +96,7 @@ $ (document).ready (function () {
     keyedOpButton = true;
     // create new element, add num txt to it
     let otherNum = $ ("<div class='o-nums'>");
-    otherNum.text (num);
+    otherNum.text (num + ' ' + val);
 
     // add current num to top div
     $second.append (otherNum);
@@ -104,6 +110,6 @@ $ (document).ready (function () {
     let newp = $ ("<div class='o-nums'>");
     newp.text (num);
     $second.append (newp);
-    console.log (eval (evalStr));
+    console.log (evalStr);
   }
 });

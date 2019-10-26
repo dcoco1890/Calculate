@@ -48,11 +48,15 @@ body{
     top: 18%;
     right: 70%;
 }
-
 .o-nums{
-    margin-left: .15rem;
+    transform: scale(1.2);
     flex-wrap: wrap;
     overflow: visible;
+    padding: 0 .2rem;
+}
+.o-nums:not(:first-child){
+    margin-left: .55rem;
+    
 }
 
 #otherNums {
