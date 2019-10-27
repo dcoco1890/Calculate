@@ -85,11 +85,15 @@ body{
     height: 100px;
     cursor: pointer;
 }
-
-.button:hover{
+ .button:hover, .button:active {
+    
+    transition: .05s all;
+    transform: scale(0.9);
+  }
+/* .button:hover{
     transition: .05s all;
     transform: scale(1.08);
-}
+} */
 
 
 .button > p.display-4 {
@@ -121,10 +125,10 @@ body{
 .thing{
     margin: 0 auto;
 }
-
-@media screen and (max-width: 600px) {
+/* 
+@media (hover: hover){
     .button:hover{
-      transition: 0s all;
-      transform: scale(1)
+        transition: .05s all;
+        transform: scale(1.08);
     }
-}
+} */
