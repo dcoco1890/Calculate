@@ -33,42 +33,15 @@ $ (document).ready (function () {
         opPress ($ (this).data ('op'));
       }
     } else if ($ (this).data ('clear') === 'yes') {
-      $answer.text ('');
-      $second.text ('');
-      evalStr = '';
+      clearAll ();
     }
   });
 
-  // function buttonPress(value, type) {
-  //     console.log(type, value); // just for me
-
-  //     if (opPress) {
-  //         $answer.text("");
-  //         $second.text(num)
-  //         opPress = false;
-  //         num = "";
-  //     }
-
-  //     if (type === "num") {
-
-  //         // if the type is operator, push num into array
-  //     } else if (type === "op") {
-
-  //         opPress = true;
-  //         if (num !== "") {
-  //             numArr.push(Number(num));
-  //         }
-  //         console.log(numArr);
-
-  //     } else {
-  //         //  clear all values
-  //         if (value === "AC") {
-  //             numArr = [];
-  //             $answer.text("");
-  //             $second.text("");
-  //         }
-  //     }
-  // }
+  function clearAll () {
+    $answer.text ('');
+    $second.text ('');
+    evalStr = '';
+  }
 
   function numPress (val) {
     // if you've pressed the operator, clear the "main" number
@@ -118,5 +91,8 @@ $ (document).ready (function () {
     newp.text (num);
     $second.append (newp);
     console.log (eval (evalStr)); // should work
+
+    let finalNum = eval (evalStr);
+    $answer.text (finalNum);
   }
 });
