@@ -70,7 +70,6 @@ $ (document).ready (function () {
   //     }
   // }
 
-  // for when a regular number gets pressed. concat nums together
   function numPress (val) {
     // if you've pressed the operator, clear the "main" number
     if (keyedOpButton) {
@@ -91,25 +90,33 @@ $ (document).ready (function () {
     }
   }
 
-  // operator press function
   function opPress (val) {
-    keyedOpButton = true;
     // create new element, add num txt to it
+    keyedOpButton = true;
     let otherNum = $ ("<div class='o-nums'>");
     otherNum.text (num + ' ' + val);
 
     // add current num to top div
     $second.append (otherNum);
-
-    evalStr += num + ' ' + val; //only will do 2 numbers, i think
+    // create evaluation string for later
+    evalStr += num + val;
     console.log (evalStr);
   }
 
   function evaluate () {
-    // same as opPress, DRY later
+    // show the evaluation string (all nums with signs plus equals at the end)
+    // in the 'otherNums' area
     let newp = $ ("<div class='o-nums'>");
+
+    // creating new evaluation string before we take 'num'
+    // and stick it up top with an equals sign
+    evalStr += num;
+
+    // num now equals what it was before plus an equal sign so the user
+    // can see a nice pretty string
+    num += ' ' + '=';
     newp.text (num);
     $second.append (newp);
-    console.log (evalStr);
+    console.log (eval (evalStr)); // should work
   }
 });

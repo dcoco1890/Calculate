@@ -43,10 +43,13 @@ body{
 }
 
 .main{
-    display: inline-flex;
-    position: fixed;
-    top: 18%;
-    right: 70%;
+    
+    position: relative;
+   top: 55%;
+}
+#main{
+    text-align:right;
+    margin-right: 10px
 }
 .o-nums{
     transform: scale(1.2);
@@ -55,7 +58,7 @@ body{
     padding: 0 .2rem;
 }
 .o-nums:not(:first-child){
-    margin-left: .55rem;
+    margin-left: .25rem;
     
 }
 
@@ -65,6 +68,7 @@ body{
     display: flex;
     max-width: 100%;
     flex-wrap: wrap;
+    height: 2em;
 }
 
 .num{
