@@ -3,21 +3,26 @@ $ (document).ready (function () {
   const $button = $ ('.button');
   const $answer = $ ('#main');
   const $second = $ ('#otherNums');
+  let valid = $ ('#validation');
   let evalStr = '';
-  let numArr = [];
-  let opArr = [];
+  let num = '';
   let keyedOpButton = false;
   let keyedEquals = false;
-  let num = '';
-  let valid = $ ('#validation');
+  // setting a limit to screen size for the button animations
+  let limit = 640;
 
-  // makes the buttons a lil' bigger when you hover
+  // makes the buttons a lil' bigger when you hover\
+  // but not when the window is smol
   $button
     .mouseover (function () {
-      $ (this).toggleClass ('button-click');
+      if ($ (window).width () > limit) {
+        $ (this).toggleClass ('button-click');
+      }
     })
     .mouseout (function () {
-      $ (this).toggleClass ('button-click');
+      if ($ (window).width () > limit) {
+        $ (this).toggleClass ('button-click');
+      }
     });
 
   //button click method
@@ -48,6 +53,9 @@ $ (document).ready (function () {
     if (keyedOpButton) {
       $answer.text ('');
       keyedOpButton = false;
+    } else if (keyedEquals) {
+      clearAll ();
+      keyedEquals = false;
     }
 
     // making sure the number isnt longer than 6 digits, and also sending
