@@ -10,17 +10,18 @@ $ (document).ready (function () {
   let keyedEquals = false;
   // setting a limit to screen size for the button animations
   let limit = 640;
+  let theWidth = $ (window).width ();
 
   // makes the buttons a lil' bigger when you hover\
   // but not when the window is smol
   $button
     .mouseover (function () {
-      if ($ (window).width () > limit) {
+      if (theWidth > limit) {
         $ (this).toggleClass ('button-click');
       }
     })
     .mouseout (function () {
-      if ($ (window).width () > limit) {
+      if (theWidth > limit) {
         $ (this).toggleClass ('button-click');
       }
     });
